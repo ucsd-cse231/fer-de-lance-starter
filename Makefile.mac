@@ -1,11 +1,13 @@
 UNAME := $(shell uname)
-TARG := --target x86_64-apple-darwin
+# TARG := --target x86_64-apple-darwin
 
 ifeq ($(UNAME), Linux)
 ARCH := elf64
+TARG := 
 endif
 ifeq ($(UNAME), Darwin)
 ARCH := macho64
+TARG := --target x86_64-apple-darwin
 endif
 
 tests/%.s: tests/%.snek src/main.rs
